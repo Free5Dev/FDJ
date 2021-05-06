@@ -2,7 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}FDJ!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/litera/bootstrap.min.css">
+        <link rel="shortcut icon" href="https://www.icone-png.com/png/53/53247.png" type="image/x-icon">
+        <style>
+           
+        </style>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -14,6 +19,13 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="https://www.icone-png.com/png/53/53247.png" alt="" class="img" style="width:100px;"></a>
+            </div>
+        </nav>
+        <div class="container mt-5">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

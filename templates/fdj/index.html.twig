@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux {% endblock %}
+
+{% block body %}
+    <div class="container">   
+        <div class="row d-sm-flex justify-content-center align-items-end">
+            <div class="col-2">
+                <img src="https://lonalo-v.azureedge.net/-/media/domain/brands/eum_logo_dark_2lines.png" alt="" class="img-fluid" style="width:100px; height:100px;">
+            </div>
+            <div class="col">
+                <h1 >Tirage du {{ data[0]['drawn_at'] | format_datetime('full', 'none', locale='fr') }}</h1>
+                <div class="row">
+                    <p><small>Résaultats EuroMillions - My Million</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-2">
+            
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col d-flex">
+                        {% for resultats in data[0]['results'] %}
+                            <div class="row">
+                                <div class="col">       
+                                    {% if resultats.type == "number"  %}
+                                        <a  class="btn btn-primary btn-rounded m-1">{{ resultats.value }}</a>
+                                    {% else %}
+                                        <a  class="btn btn-outline-warning btn-rounded m-1">{{ resultats.value }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-4">
+                        <p class="d-flex"><span class="text-primary">My Million:  </span> EJ 
+                            <span class="d-flex text-small">
+                                {% for resultats in data[0]['results'] %}
+                                    <span class="d-flex">{{ resultats.value}}</span>
+                                {% endfor %}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# {{ dump(data[0]) }}
+        {{ dump(data[0]['drawn_at']) }}
+        <p>{{ data[0]['drawn_at'] | format_datetime('full', 'none', locale='fr') }}</p> #}
+    </div>
+{% endblock %}
